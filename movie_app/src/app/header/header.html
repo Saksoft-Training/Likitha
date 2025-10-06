@@ -1,0 +1,23 @@
+<nav>
+    <div>
+        <div (click)="logAction('Home clicked')">
+            <img src="/icons/home.svg" alt="Home">
+            <a routerLink="">Home</a>
+        </div>
+
+    <div (click)="logAction('Movies clicked')">
+        <img src="/icons/movies.svg" alt="Movies">
+        <a routerLink="movies">Movies</a>
+    </div>
+    <div (click)="logAction('About clicked')">
+        <img src="/icons/about.svg" alt="About">
+        <a routerLink="about">About</a>
+    </div>
+    <div (click)="logAction('Add Movie clicked')">
+        <img src="/icons/add.svg" alt="Add Movie">
+        <a routerLink="add-movie">Add Movie</a>
+    </div>
+    </div>
+    
+</nav>
+<router-outlet></router-outlet>

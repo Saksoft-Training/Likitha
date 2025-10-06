@@ -1,0 +1,21 @@
+
+<h2>Movie List</h2>
+<div *ngIf="movies.length; else noMovies" class="movie-list">
+  <div *ngFor="let movie of movies; let i = index" class="movie-card" (click)="onSelectMovie(movie, i)"
+  [appAppHighlight]="'lightblue'"
+     [ngClass]="{'released': movie.status === 'released'}"
+     [ngStyle]="{'border': movie.status === 'upcoming' ? '2px dashed orange' : '2px solid green'}">
+    <h3>{{ movie.title }}</h3>
+    <img *ngIf="movie.poster" [src]="movie.poster" alt="Poster" width="150" />
+    <p>{{ movie.description }}</p>
+    <p>Release Date: {{ movie.releaseDate }}</p>
+    <p>Languages: {{ movie.languages}}</p>
+    <p>Genres: {{ movie.genres}}</p>
+    <p>Status: {{ movie.status }}</p>
+    <button (click)="onDeleteMovie(i); $event.stopPropagation()">Delete</button>
+  </div>
+</div>
+
+<ng-template #noMovies>
+  <p>No movies added yet.</p>
+</ng-template>

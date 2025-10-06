@@ -1,0 +1,28 @@
+.about-section {
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+
+  .hero {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.7),
+        rgba(128, 0, 128, 0.7)
+      );
+    padding: 6rem 1rem;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+
+  .about {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    font-size: 1rem;
+    color: #000000;
+  }
+}

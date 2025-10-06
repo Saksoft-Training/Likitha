@@ -1,0 +1,10 @@
+<div class="left">
+    @for (movie of movies; track $index){
+    <div>
+        <img [src]="movie.poster" alt="{{movie.title}}"><br>
+        <span>{{movie.title}}</span>
+        <span>{{movie.genres}}</span>
+        <!-- <span><img src="/icons/rating.svg" alt="Rating">{{movie.rating}}</span> -->
+    </div>
+    }
+</div>

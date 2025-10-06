@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #222;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  color: #555;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+p:first-of-type {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+}
+
+ng-template p {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  font-size: 1.1rem;
+}

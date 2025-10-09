@@ -3,6 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MovieService } from '../movie-service';
 import { AppHighlight } from '../app-highlight';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie-component',
@@ -16,7 +17,7 @@ export class AddMovieComponent {
   movieForm!: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private movieService: MovieService) { }
+  constructor(private router:Router,private fb: FormBuilder, private movieService: MovieService) { }
 
   ngOnInit(): void {
     this.movieForm = this.fb.group({
@@ -66,6 +67,7 @@ export class AddMovieComponent {
     this.movieService.addMovie(movieData);
 
     alert('Movie added successfully!');
+    this.router.navigate(['movies']);
   } else {
     alert('Please fill all required fields.');
   }

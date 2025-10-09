@@ -14,11 +14,11 @@ import { AppHighlight } from '../app-highlight';
   styleUrl: './movie-list-component.scss'
 })
 export class MovieListComponent implements OnInit {
-   movies: Movie[] = [];
+  movies: Movie[] = [];
 
-   constructor(private movieService: MovieService, private router:Router, private logger:LoggerService){}
+  constructor(private movieService: MovieService, private router: Router, private logger: LoggerService) { }
 
-   ngOnInit() {
+  ngOnInit() {
     this.movieService.movies$.subscribe(movies => {
       this.movies = movies;
       this.logger.log('Movie list updated', movies);
@@ -34,6 +34,6 @@ export class MovieListComponent implements OnInit {
 
 
   onSelectMovie(movie: Movie, index: number) {
-  this.router.navigate(['/movies', index]);
-}
+    this.router.navigate(['movies', index+1]);
+  }
 }

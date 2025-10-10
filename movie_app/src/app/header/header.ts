@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoggerService } from '../logger-service';
 
 @Component({
@@ -9,10 +9,19 @@ import { LoggerService } from '../logger-service';
   styleUrl: './header.scss'
 })
 export class Header {
-  constructor(private logger:LoggerService) {}
 
-  logAction(action: string) {
+  /**
+   * 
+   * @param logger - Service used for logging header related actions
+   */
+  constructor(private logger: LoggerService) { }
+
+    /**
+     * 
+     * @param action - A description of user action to log
+     */
+  public logAction(action: string): void {
     this.logger.log(`Header action: ${action}`);
-}
+  }
 
 }

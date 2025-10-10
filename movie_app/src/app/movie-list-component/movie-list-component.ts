@@ -14,11 +14,29 @@ import { AppHighlight } from '../app-highlight';
   styleUrl: './movie-list-component.scss'
 })
 export class MovieListComponent implements OnInit {
+
+  /**
+   * Array of movies currently available in list
+   */
   movies: Movie[] = [];
 
-  constructor(private movieService: MovieService, private router: Router, private logger: LoggerService) { }
+  /**
+   * 
+   * @param movieService - Service for managing movie data
+   * @param router - Angular Router used for navigation
+   * @param logger - Service used for logging component activity
+   */
 
-  ngOnInit() {
+  constructor(private movieService: MovieService, 
+    private router: Router, 
+    private logger: LoggerService) { }
+
+
+    /**
+     * @summary - Subscribes to movie list from ovieService and logs activity
+     */
+
+  public ngOnInit() {
     this.movieService.movies$.subscribe(movies => {
       this.movies = movies;
       this.logger.log('Movie list updated', movies);
@@ -26,14 +44,25 @@ export class MovieListComponent implements OnInit {
     this.logger.log('MovieListComponent initialized');
   }
 
-  onDeleteMovie(index: number) {
+  /**
+   * @summary - updates movie list and logs deletion
+   * @param index  - index of movie to be deleted
+   */
+
+  public onDeleteMovie(index: number): void {
     const deletedMovie = this.movies[index];
     this.movieService.deleteMovie(index);
     this.logger.log('Movie deleted', deletedMovie);
   }
 
+  /**
+   * @summary - Navigate to movie details page
+   * @param movie - selected movie object
+   * @param index - index of selected movie
+   */
 
-  onSelectMovie(movie: Movie, index: number) {
-    this.router.navigate(['movies', index+1]);
+
+  public onSelectMovie(movie: Movie, index: number): void {
+    this.router.navigate(['movies', index + 1]);
   }
 }

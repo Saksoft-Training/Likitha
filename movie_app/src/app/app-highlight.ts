@@ -6,28 +6,38 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 export class AppHighlight {
 
   @Input('appAppHighlight') highlightColor: string = 'lightyellow';
- 
- 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
- 
+
+  private highlightedStyle = 'highlighted';
+
+  /**
+   * 
+   * @param el - Reference to DOM element
+   * @param renderer - Renderer2 for safely modifying DOM
+   */
+
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+  /**
+   * HostListener for mouseenter event
+   * @summary - Adds highlight style and background color to element
+   */
+
   @HostListener('mouseenter') onMouseEnter() {
-    this.setHighlight(this.highlightColor);
-  }
- 
-  @HostListener('mouseleave') onMouseLeave() {
-    this.setHighlight(null);
-  }
- 
-  private setHighlight(color: string | null) {
-    if (color) {
-      this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', color);
-      this.renderer.setStyle(this.el.nativeElement, 'transition', '0.3s');
-      this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
-      this.renderer.setStyle(this.el.nativeElement, 'boxShadow', '0 4px 8px rgba(0,0,0,0.2)');
-    } else {
-      this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor');
-      this.renderer.removeStyle(this.el.nativeElement, 'boxShadow');
+    this.renderer.addClass(this.el.nativeElement, this.highlightedStyle);
+    if (this.highlightColor && this.highlightColor !== 'lightyellow') {
+      this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.highlightColor)
     }
   }
 
+  /**
+   * HostListener for mouseleave event
+   * @summary - Removes background color but keeps highlight class
+   */
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.renderer.addClass(this.el.nativeElement, this.highlightedStyle);
+    if (this.highlightColor && this.highlightColor !== 'lightyellow') {
+      this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor')
+    }
+  }
 }

@@ -5,7 +5,6 @@ form {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -65,8 +64,6 @@ form {
         color: white;
         border: none;
         padding: 0.5rem 0.75rem;
-        border-radius: 4px;
-        cursor: pointer;
 
         &:hover {
           background-color: #c82333;
@@ -81,8 +78,6 @@ form {
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
 
     &:hover {
       background-color: #138496;
@@ -95,8 +90,6 @@ form {
     border: none;
     padding: 0.75rem;
     font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
     transition: background-color 0.3s;
 
     &:hover {

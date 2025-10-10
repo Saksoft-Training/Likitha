@@ -4,9 +4,8 @@
   gap: 2rem;
   padding: 2rem;
   justify-content: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  > div {
+  >div {
     width: 20rem;
     background-color: #ffffff;
     border-radius: 10px;
@@ -33,11 +32,11 @@
       text-align: center;
 
 
-        img {
-          width: 16px;
-          height: 16px;
-        }
-      
+      img {
+        width: 16px;
+        height: 16px;
+      }
+
     }
   }
 }

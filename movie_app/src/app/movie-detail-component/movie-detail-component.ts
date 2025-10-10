@@ -11,14 +11,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './movie-detail-component.scss'
 })
 export class MovieDetailComponent implements OnInit {
-  selectedMovie: Movie | null = null;
+  /**
+   * Movie selected on route parameter
+   */
+  public selectedMovie: Movie | null = null;
 
-  constructor(private movieService: MovieService, private route: ActivatedRoute) {}
+  /**
+   * 
+   * @param movieService - Service to retrieve the movie data
+   * @param route - ActivatedRoute used to extract route parameter
+   */
 
-  ngOnInit() {
-   const id = +this.route.snapshot.paramMap.get('id')!;
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
+
+  /**
+   * @summary - Retrieves the movie ID from route and subscribes to movie data to set selected movie
+   */
+
+
+  public ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id')!;
     this.movieService.movies$.subscribe(movies => {
-      this.selectedMovie = movies[id-1];
+      this.selectedMovie = movies[id - 1];
     });
   }
 

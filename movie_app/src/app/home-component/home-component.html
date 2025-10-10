@@ -1,8 +1,9 @@
 <div class="left">
-    <div *ngFor="let movie of movies; let i = index" (click)="goToDetails(i)">
+    @for (movie of movies; track movie.id; let i = $index){
+    <div (click)="goToDetails(i)">
         <img [src]="movie.poster" alt="{{movie.title}}"><br>
         <span>{{movie.title}}</span>
         <span>{{movie.genres}}</span>
-        <!-- <span><img src="/icons/rating.svg" alt="Rating">{{movie.rating}}</span> -->
     </div>
+    }
 </div>

@@ -5,9 +5,14 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
 })
 export class AppHighlight {
 
-  @Input('appAppHighlight') highlightColor: string = 'lightyellow';
+  //#region Properties
 
+  @Input('appAppHighlight') highlightColor: string = 'lightyellow';
   private highlightedStyle = 'highlighted';
+
+  //#endregion
+
+  //#region Constructor
 
   /**
    * 
@@ -16,6 +21,11 @@ export class AppHighlight {
    */
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+  //#endregion
+
+  //#region Event handlers
+
 
   /**
    * HostListener for mouseenter event
@@ -40,4 +50,6 @@ export class AppHighlight {
       this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor')
     }
   }
+
+  //#endregion
 }

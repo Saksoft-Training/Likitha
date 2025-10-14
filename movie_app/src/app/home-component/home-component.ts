@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home-component.scss'
 })
 export class HomeComponent implements OnInit {
+  //#region Properties
 
   /**
    * Array of movie data displayed on the home page
@@ -67,12 +68,22 @@ export class HomeComponent implements OnInit {
     poster: 'assets/idli-kadai.avif'
   }];
 
-/**
- * 
- * @param movieService - Service for managing movie data
- * @param router - Angular router for navigation
- */
+  //#endregion
+
+
+  //#region Constructor
+
+  /**
+   * 
+   * @param movieService - Service for managing movie data
+   * @param router - Angular router for navigation
+   */
   constructor(private movieService: MovieService, private router: Router) { }
+
+  //#endregion
+
+
+  //#region Lifecycle Hooks
 
   /**
    * Sets initial movie list to MovieService
@@ -80,6 +91,11 @@ export class HomeComponent implements OnInit {
   public ngOnInit(): void {
     this.movieService.setMovies(this.movies);
   }
+
+  //#endregion
+
+
+  //#region Navigate
 
   /**
    * Navigates to detail page of a selected movie
@@ -89,6 +105,8 @@ export class HomeComponent implements OnInit {
   public goToDetails(index: number): void {
     this.router.navigate(['/movies', index + 1]);
   }
+
+  //#endregion
 
 
 }

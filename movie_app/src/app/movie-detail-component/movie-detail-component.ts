@@ -11,10 +11,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './movie-detail-component.scss'
 })
 export class MovieDetailComponent implements OnInit {
+  //#region Properties
+
   /**
    * Movie selected on route parameter
    */
   public selectedMovie: Movie | null = null;
+
+  //endregion
+
+  //region Constructor
 
   /**
    * 
@@ -23,6 +29,10 @@ export class MovieDetailComponent implements OnInit {
    */
 
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
+
+  //#endregion
+
+  //#region Lifecycle Hooks
 
   /**
    * @summary - Retrieves the movie ID from route and subscribes to movie data to set selected movie
@@ -35,5 +45,7 @@ export class MovieDetailComponent implements OnInit {
       this.selectedMovie = movies[id - 1];
     });
   }
+
+  //#endregion
 
 }

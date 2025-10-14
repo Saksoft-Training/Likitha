@@ -12,11 +12,17 @@ import { Router } from '@angular/router';
   styleUrl: './add-movie-component.scss'
 })
 export class AddMovieComponent {
+
+  //#region Fields and Properties
+
   public genresList: string[] = ['Action', 'Comedy', 'Drama', 'Fantasy', 'Horror'];
   public errorMessage: string = '';
-
   public movieForm!: FormGroup;
 
+  //#endregion
+
+
+  //#region Constructor
 
   /**
    * 
@@ -29,10 +35,14 @@ export class AddMovieComponent {
     private fb: FormBuilder,
     private movieService: MovieService) { }
 
-    /**
-     * Adds an initial cast member input field
-     * Initializes the form with default values and required fields
-     */
+  //#endregion
+
+  //#region Lifecycle hooks
+
+  /**
+   * Adds an initial cast member input field
+   * Initializes the form with default values and required fields
+   */
 
   public ngOnInit(): void {
     this.movieForm = this.fb.group({
@@ -48,6 +58,10 @@ export class AddMovieComponent {
     });
     this.addCastMember();
   }
+
+  //#endregion
+
+  //#region cast member form control
 
   /**
    * @returns A formArray representing the cast members
@@ -73,6 +87,9 @@ export class AddMovieComponent {
   public removeCastMember(index: number): void {
     this.castMembers.removeAt(index);
   }
+  //#endregion
+
+  //#region Form Submission
 
   /**
    * Handles form submission
@@ -104,11 +121,15 @@ export class AddMovieComponent {
     }
   }
 
-    /**
-     * Resets the form to initial state
-     * Clears all cast members and adds one default input
-     * Clears any error message
-     */
+  //#endregion
+
+  //#region reset
+
+  /**
+   * Resets the form to initial state
+   * Clears all cast members and adds one default input
+   * Clears any error message
+   */
 
   public onReset(): void {
     this.movieForm.reset();
@@ -116,4 +137,6 @@ export class AddMovieComponent {
     this.addCastMember();
     this.errorMessage = '';
   }
+
+  //#endregion
 }

@@ -1,3 +1,12 @@
+$primary-color: #e74c3c;
+$primary-hover-color: #c0392b;
+$card-bg-color: #ffffff;
+$card-border-radius: 8px;
+$image-border-radius: 4px;
+$card-hover-translate-y: -5px;
+$align: center;
+
+
 .movie-list {
   display: flex;
   flex-wrap: wrap;
@@ -8,29 +17,29 @@
 }
 
 .movie-card {
-  background-color: #ffffff;
-  border-radius: 8px;
+  background-color: $card-bg-color;
+  border-radius: $card-border-radius;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 280px;
   padding: 16px;
   transition: transform 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: $align;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY($card-hover-translate-y);
   }
 
   h3 {
     margin: 0 0 12px;
     font-size: 1.2rem;
     color: #333;
-    text-align: center;
+    text-align: $align;
   }
 
   img {
-    border-radius: 4px;
+    border-radius: $image-border-radius;
     margin-bottom: 12px;
   }
 
@@ -38,21 +47,21 @@
     font-size: 0.9rem;
     color: #555;
     margin: 4px 0;
-    text-align: center;
+    text-align: $align;
   }
 
   button {
     margin-top: 12px;
     padding: 8px 16px;
     border: none;
-    background-color: #e74c3c;
+    background-color: $primary-color;
     color: white;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.9rem;
 
     &:hover {
-      background-color: #c0392b;
+      background-color: $primary-hover-color;
     }
   }
 }

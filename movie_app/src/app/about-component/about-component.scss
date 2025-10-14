@@ -1,12 +1,17 @@
+
+$hero-bg-gradient: linear-gradient(
+  90deg,
+  rgba(255, 0, 0, 0.7),
+  rgba(128, 0, 128, 0.7)
+);
+
 .about-section {
   color: #fff;
   text-align: center;
   padding: 3rem 1rem;
 
   .hero {
-    background: linear-gradient(90deg,
-        rgba(255, 0, 0, 0.7),
-        rgba(128, 0, 128, 0.7));
+    background: $hero-bg-gradient;
     padding: 6rem 1rem;
     margin-bottom: 2rem;
 

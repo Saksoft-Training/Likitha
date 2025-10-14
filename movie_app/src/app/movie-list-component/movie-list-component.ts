@@ -15,10 +15,16 @@ import { AppHighlight } from '../app-highlight';
 })
 export class MovieListComponent implements OnInit {
 
+  //#region Properties
+
   /**
    * Array of movies currently available in list
    */
   movies: Movie[] = [];
+
+  //#endregion
+
+  //#region Constructor
 
   /**
    * 
@@ -27,14 +33,18 @@ export class MovieListComponent implements OnInit {
    * @param logger - Service used for logging component activity
    */
 
-  constructor(private movieService: MovieService, 
-    private router: Router, 
+  constructor(private movieService: MovieService,
+    private router: Router,
     private logger: LoggerService) { }
 
+  //#endregion
 
-    /**
-     * @summary - Subscribes to movie list from ovieService and logs activity
-     */
+  //#region Lifecycle Hooks
+
+
+  /**
+   * @summary - Subscribes to movie list from ovieService and logs activity
+   */
 
   public ngOnInit() {
     this.movieService.movies$.subscribe(movies => {
@@ -43,6 +53,10 @@ export class MovieListComponent implements OnInit {
     });
     this.logger.log('MovieListComponent initialized');
   }
+
+  //#endregion
+
+  //#region Delete Movie
 
   /**
    * @summary - updates movie list and logs deletion
@@ -55,6 +69,10 @@ export class MovieListComponent implements OnInit {
     this.logger.log('Movie deleted', deletedMovie);
   }
 
+  //#endregion 
+
+  //#region Select Movie
+
   /**
    * @summary - Navigate to movie details page
    * @param movie - selected movie object
@@ -65,4 +83,6 @@ export class MovieListComponent implements OnInit {
   public onSelectMovie(movie: Movie, index: number): void {
     this.router.navigate(['movies', index + 1]);
   }
+
+  //#endregion
 }

@@ -10,18 +10,26 @@ import { LoggerService } from '../logger-service';
 })
 export class Header {
 
+  //#region constructor
+
   /**
-   * 
+   * constructor
    * @param logger - Service used for logging header related actions
    */
   constructor(private logger: LoggerService) { }
 
-    /**
-     * 
-     * @param action - A description of user action to log
-     */
+  //#endregion
+
+  //#region Log Action 
+
+  /**
+   * Logs a user action from header
+   * @param action - A description of user action to log
+   */
   public logAction(action: string): void {
     this.logger.log(`Header action: ${action}`);
   }
+
+  //#endregion
 
 }

@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class LoggerService {
 
+  //#region Log Methods
+
   /**
    * Logs message to browser console
    * @param message - The message to log
@@ -17,5 +19,5 @@ export class LoggerService {
       console.log(`[LOG]: ${message}`);
     }
   }
-  
+  //#endregion
 }

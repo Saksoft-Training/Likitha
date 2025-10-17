@@ -1,62 +1,53 @@
-<form [formGroup]="movieForm">
-    <label>Title</label>
-    <input type="text" formControlName="title"
+<form [formGroup]="movieForm" class="form-list">
+    <label class="label">Title</label>
+    <input type="text" formControlName="title" class="form-input"
         [ngClass]="{'invalid': movieForm.get('title')?.invalid && movieForm.get('title')?.touched}"
         [appAppHighlight]="'#f5faff'">
-
-    <label>Description</label>
-    <textarea formControlName="description" [appAppHighlight]="'#f5faff'"></textarea>
-
-    <label>Release Date</label>
-    <input type="date" formControlName="releaseDate" [appAppHighlight]="'#f5faff'">
-
-    <label>Languages</label>
-    <select formControlName="languages" [appAppHighlight]="'#f5faff'">
+    <label class="label">Description</label>
+    <textarea formControlName="description" [appAppHighlight]="'#f5faff'" class="form-textarea"></textarea>
+    <label class="label">Release Date</label>
+    <input type="date" formControlName="releaseDate" class="form-date" [appAppHighlight]="'#f5faff'">
+    <label class="label">Languages</label>
+    <select formControlName="languages" class="form-select" [appAppHighlight]="'#f5faff'">
         <option value="Kannada">Kannada</option>
         <option value="Telugu">Telugu</option>
         <option value="Tamil">Tamil</option>
         <option value="Malayalam">Malayalam</option>
         <option value="Hindi">Hindi</option>
     </select>
-
-    <label>Genres</label>
-    <select formControlName="genres" [appAppHighlight]="'#f5faff'">
+    <label class="label">Genres</label>
+    <select formControlName="genres" class="form-select" [appAppHighlight]="'#f5faff'">
         @for(genre of genresList; track genresList){
         <option>{{genre}}</option>
         }
     </select>
-
-    <label>Duration</label>
-    <input type="time" formControlName="duration" [appAppHighlight]="'#f5faff'">
-
-    <label>Director</label>
-    <input type="text" formControlName="director" [appAppHighlight]="'#f5faff'">
-
-    <label>Cast</label>
-    <div formArrayName="cast">
+    <label class="label">Duration</label>
+    <input type="time" formControlName="duration" class="form-time" [appAppHighlight]="'#f5faff'">
+    <label class="label">Director</label>
+    <input type="text" formControlName="director" [appAppHighlight]="'#f5faff'" class="form-director">
+    <label class="label">Cast</label>
+    <div formArrayName="cast" class="form-cast-group">
         @for (member of castMembers.controls; track member; let i =$index){
-        <div>
-            <input type="text" [formControlName]="i" placeholder="Cast Member Name" [appAppHighlight]="'#f5faff'">
-            <button type="button" (click)="removeCastMember(i)">Remove</button>
+        <div class="form-cast-item">
+            <input type="text" class="form-cast-input" [formControlName]="i" placeholder="Cast Member Name"
+                [appAppHighlight]="'#f5faff'">
+            <button type="button" (click)="removeCastMember(i)" class="remove-cast">Remove</button>
         </div>
         }
     </div>
-    <button type="button" (click)="addCastMember()">Add Cast Member</button>
-
-    <label>Poster</label>
-    <input type="url" formControlName="poster" [appAppHighlight]="'#f5faff'">
-
-    <label>Status</label>
-    <select formControlName="status" [appAppHighlight]="'#f5faff'">
+    <button type="button" (click)="addCastMember()" class="adding-cast">Add Cast Member</button>
+    <label class="label">Poster</label>
+    <input type="url" formControlName="poster" class="form-url" [appAppHighlight]="'#f5faff'">
+    <label class="label">Status</label>
+    <select formControlName="status" class="form-select" [appAppHighlight]="'#f5faff'">
         <option value="upcoming">Coming Soon</option>
         <option value="released">Released</option>
     </select>
-
     @if (errorMessage){
     <div class="error-message">
         {{errorMessage}}
     </div>
     }
-    <button type="submit" (click)="onSubmit()">Add Movie</button>
-    <button type="button" (click)="onReset()">Reset</button>
+    <button class="form-submit" type="submit" (click)="onSubmit()">Add Movie</button>
+    <button class="form-btn" type="button" (click)="onReset()">Reset</button>
 </form>

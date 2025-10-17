@@ -1,9 +1,10 @@
 <div class="left">
-    @for (movie of movies; track movie.id; let i = $index){
-    <div (click)="goToDetails(i)">
-        <img [src]="movie.poster" alt="{{movie.title}}"><br>
-        <span>{{movie.title}}</span>
-        <span>{{movie.genres}}</span>
+    @for (movie of movies; track movie.id; let i = $index)
+    {
+    <div (click)="goToDetails(i)" class="home-div">
+        <img [src]="movie.poster" alt="{{movie.title}}" class="home-img"><br>
+        <span class="home-span">{{movie.title}}</span>
+        <span class="home-span">{{movie.genres}}</span>
     </div>
     }
 </div>

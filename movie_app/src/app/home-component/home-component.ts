@@ -3,110 +3,62 @@ import { Movie } from '../../models/movie';
 import { MovieService } from '../movie-service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home-component',
   imports: [CommonModule],
   templateUrl: './home-component.html',
-  styleUrl: './home-component.scss'
+  styleUrls: ['./home-component.scss']
 })
 export class HomeComponent implements OnInit {
   //#region Properties
-
   /**
-   * Array of movie data displayed on the home page
+   * Array of movie data displayed on the home page called from json file
    */
-
-  public movies: Movie[] = [{
-    title: 'Kanthara',
-    description: 'Its a great movie.',
-    releaseDate: '2 Oct 2025',
-    genres: ['Historical'],
-    rating: 9,
-    languages: 'Kannada',
-    duration: '02:02',
-    director: 'Rishab Shetty',
-    cast: ['Rishab Shetty'],
-    status: 'Released',
-    poster: 'assets/kantara.avif'
-  }, {
-    title: 'They call him OG',
-    description: 'Its a great movie.',
-    releaseDate: '28 Sep 2025',
-    genres: ['Action'],
-    rating: 8,
-    languages: 'Telugu',
-    duration: '02:02',
-    director: 'Rishab Shetty',
-    cast: ['Rishab Shetty'],
-    status: 'Released',
-    poster: 'assets/OG.avif'
-  }, {
-    title: 'Sunny Sanskari Ki Tulsi Kumari',
-    description: 'Its a great movie.',
-    releaseDate: '2 Oct 2025',
-    genres: ['Family'],
-    rating: 8,
-    languages: 'Hindi',
-    duration: '02:02',
-    director: 'Rishab Shetty',
-    cast: ['Rishab Shetty'],
-    status: 'Released',
-    poster: 'assets/sunny-sanskari.avif'
-  }, {
-    title: 'Idli Kadai',
-    description: 'Its a great movie.',
-    releaseDate: '1 Oct 2025',
-    genres: ['Family'],
-    rating: 8,
-    languages: 'Tamil',
-    duration: '02:02',
-    director: 'Rishab Shetty',
-    cast: ['Rishab Shetty'],
-    status: 'Released',
-    poster: 'assets/idli-kadai.avif'
-  }];
-
+  public movies: Movie[] = [];
+  public moviesJsonPath = 'assets/movies.json';
   //#endregion
 
-
   //#region Constructor
-
   /**
    * 
    * @param movieService - Service for managing movie data
    * @param router - Angular router for navigation
    */
-  constructor(private movieService: MovieService, private router: Router) { }
-
+  constructor(private movieService: MovieService, private router: Router, private http: HttpClient) { }
   //#endregion
-
 
   //#region Lifecycle Hooks
-
   /**
    * Sets initial movie list to MovieService
+   * @returns void
    */
   public ngOnInit(): void {
-    this.movieService.setMovies(this.movies);
+    const existingMovies = this.movieService.getMovies();
+    if (existingMovies && existingMovies.length > 0) {
+      this.movies = existingMovies;
+    } else {
+      this.http.get<Movie[]>(this.moviesJsonPath).subscribe({
+        next: (data) => {
+          this.movies = data;
+          this.movieService.setMovies(data);
+        },
+        error: (err) => {
+          console.error('Failed to load movies:', err);
+        }
+      });
+    }
   }
-
   //#endregion
 
-
   //#region Navigate
-
   /**
    * Navigates to detail page of a selected movie
    * @param index - Index of selected movie in list
+   * @returns void
    */
-
   public goToDetails(index: number): void {
     this.router.navigate(['/movies', index + 1]);
   }
-
   //#endregion
-
-
 }

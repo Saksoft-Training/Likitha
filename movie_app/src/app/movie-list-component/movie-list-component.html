@@ -5,20 +5,23 @@
   <div class="movie-card" (click)="onSelectMovie(movie, i)" [appAppHighlight]="'lightblue'"
     [ngClass]="{'released': movie.status === 'released'}"
     [ngStyle]="{'border': movie.status === 'upcoming' ? '2px dashed orange' : '2px solid green'}">
-    <h3>{{ movie.title }}</h3>
+    <h3 class="list-heading">{{ movie.title }}</h3>
     @if (movie.poster){
-    <img [src]="movie.poster" alt="Poster" width="150" />
+    <img [src]="movie.poster" alt="Poster" width="150"  class="list-img">
     }
-    <p>{{ movie.description }}</p>
-    <p>Release Date: {{ movie.releaseDate }}</p>
-    <p>Languages: {{ movie.languages}}</p>
-    <p>Genres: {{ movie.genres}}</p>
-    <p>Status: {{ movie.status }}</p>
-    <button (click)="onDeleteMovie(i); $event.stopPropagation()">Delete</button>
+    @else{
+      <p class="list-paragraph">Loading</p>
+    }
+    <p class="list-paragraph">{{ movie.description }}</p>
+    <p class="list-paragraph">Release Date: {{ movie.releaseDate }}</p>
+    <p class="list-paragraph">Languages: {{ movie.languages}}</p>
+    <p class="list-paragraph">Genres: {{ movie.genres}}</p>
+    <p class="list-paragraph">Status: {{ movie.status }}</p>
+    <button (click)="onDeleteMovie(i); $event.stopPropagation()" class="list-button">Delete</button>
   </div>
   }
 </div>
 }
 @else {
-  <p>No movies added yet.</p>
+  <p class="list-paragraph">No movies added yet.</p>
 }

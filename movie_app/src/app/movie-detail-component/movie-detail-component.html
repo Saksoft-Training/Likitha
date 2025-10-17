@@ -1,17 +1,20 @@
-@if (selectedMovie) {
+<div class="detail-div">
+  @if (selectedMovie) {
   <div>
-    <h2>{{ selectedMovie.title }}</h2>
-    
+    <h2 class="detail-heading">{{ selectedMovie.title }}</h2>
     @if (selectedMovie.poster) {
-      <img [src]="selectedMovie.poster" alt="Poster" width="200" />
+    <img [src]="selectedMovie.poster" alt="Poster" width="200" class="detail-image">
     }
-    
-    <p>{{ selectedMovie.description }}</p>
-    <p>Release Date: {{ selectedMovie.releaseDate }}</p>
-    <p>Languages: {{ selectedMovie.languages }}</p>
-    <p>Genres: {{ selectedMovie.genres }}</p>
-    <p>Status: {{ selectedMovie.status }}</p>
+    @else{
+    <p class="detail-paragraph">Loading</p>
+    }
+    <p class="detail-paragraph">{{ selectedMovie.description }}</p>
+    <p class="detail-paragraph">Release Date: {{ selectedMovie.releaseDate }}</p>
+    <p class="detail-paragraph">Languages: {{ selectedMovie.languages }}</p>
+    <p class="detail-paragraph">Genres: {{ selectedMovie.genres }}</p>
+    <p class="detail-paragraph">Status: {{ selectedMovie.status }}</p>
   </div>
-} @else {
-  <p>Select a movie to see details.</p>
-}
+  } @else {
+  <p class="detail-paragraph">Select a movie to see details.</p>
+  }
+</div>

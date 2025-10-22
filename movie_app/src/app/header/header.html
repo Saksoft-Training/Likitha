@@ -1,0 +1,21 @@
+<nav>
+    <div class="header-div">
+        <div (click)="logAction('Home clicked')" class="header-div-class">
+            <img src="/icons/home.svg" alt="Home" class="header-img">
+            <a routerLink="" class="header-link">Home</a>
+        </div>
+        <div (click)="logAction('Movies clicked')" class="header-div-class">
+            <img src="/icons/movies.svg" alt="Movies" class="header-img">
+            <a routerLink="movies" class="header-link">Movies</a>
+        </div>
+        <div (click)="logAction('About clicked')" class="header-div-class">
+            <img src="/icons/about.svg" alt="About" class="header-img">
+            <a routerLink="about" class="header-link">About</a>
+        </div>
+        <div (click)="logAction('Add Movie clicked')" class="header-div-class">
+            <img src="/icons/add.svg" alt="Add Movie" class="header-img">
+            <a routerLink="add-movie" class="header-link">Add Movie</a>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

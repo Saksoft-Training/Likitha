@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Kanthara",
+    "description": "Its a great movie.",
+    "releaseDate": "2 Oct 2025",
+    "genres": [
+      "Historical"
+    ],
+    "rating": 9,
+    "languages": "Kannada",
+    "duration": "02:02",
+    "director": "Rishab Shetty",
+    "cast": [
+      "Rishab Shetty"
+    ],
+    "status": "Released",
+    "poster": "assets/kantara.avif"
+  },
+  {
+    "title": "They call him OG",
+    "description": "Its a great movie.",
+    "releaseDate": "28 Sep 2025",
+    "genres": [
+      "Action"
+    ],
+    "rating": 8,
+    "languages": "Telugu",
+    "duration": "02:02",
+    "director": "Rishab Shetty",
+    "cast": [
+      "Rishab Shetty"
+    ],
+    "status": "Released",
+    "poster": "assets/OG.avif"
+  },
+  {
+    "title": "Sunny Sanskari Ki Tulsi Kumari",
+    "description": "Its a great movie.",
+    "releaseDate": "2 Oct 2025",
+    "genres": [
+      "Family"
+    ],
+    "rating": 8,
+    "languages": "Hindi",
+    "duration": "02:02",
+    "director": "Rishab Shetty",
+    "cast": [
+      "Rishab Shetty"
+    ],
+    "status": "Released",
+    "poster": "assets/sunny-sanskari.avif"
+  },
+  {
+    "title": "Idli Kadai",
+    "description": "Its a great movie.",
+    "releaseDate": "1 Oct 2025",
+    "genres": [
+      "Family"
+    ],
+    "rating": 8,
+    "languages": "Tamil",
+    "duration": "02:02",
+    "director": "Rishab Shetty",
+    "cast": [
+      "Rishab Shetty"
+    ],
+    "status": "Released",
+    "poster": "assets/idli-kadai.avif"
+  }
+]

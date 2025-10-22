@@ -1,0 +1,367 @@
+//  Global Variables
+$primary-color: #333;
+$primary-hover-color: #c0392b;
+$background-color: #fafafa;
+$border-radius: 8px;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$heading-color: #222;
+$text-align: center;
+$color-btn-text: white;
+$border: none;
+$padding-input: 0.75rem 1rem;
+$flex-direction: column;
+$nav-bg-color: #da1b1b;
+$align-items: center;
+$icon-size: 24px;
+$card-bg-color: #ffffff;
+$card-border-radius: 10px;
+$card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$card-hover-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+$image-border-radius: 4px;
+$card-hover-translate-y: -5px;
+$align: center;
+$hero-bg-gradient: linear-gradient(90deg, rgba(255, 0, 0, 0.7), rgba(128, 0, 128, 0.7));
+
+//Global styles
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+//About Component
+.about-section {
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+
+    .hero {
+        background: $hero-bg-gradient;
+        padding: 6rem 1rem;
+        margin-bottom: 2rem;
+
+        .hero-heading {
+            font-weight: 700;
+            font-size: 3rem;
+            margin: 0;
+        }
+    }
+
+    .about {
+        max-width: 700px;
+        margin: 0 auto 3rem auto;
+        font-size: 1rem;
+        color: #000000;
+    }
+}
+
+//Add Movie Component
+.form-list {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 4rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: $flex-direction;
+    gap: 1.5rem;
+
+    .label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: #333;
+    }
+
+    .form-input,
+    .form-date,
+    .form-time,
+    .form-url,
+    .form-director,
+    .form-textarea,
+    .form-select,
+    .adding-cast {
+        width: 100%;
+        padding: $padding-input;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+    }
+
+    .form-select-multiple {
+        height: auto;
+        min-height: 100px;
+    }
+
+    .form-cast-group {
+        display: flex;
+        flex-direction: $flex-direction;
+        gap: 1rem;
+
+        .form-cast-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .form-cast-input {
+                flex: 1;
+                padding: $padding-input;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 1rem;
+
+                &:focus {
+                    border-color: #007BFF;
+                    outline: none;
+                }
+            }
+
+            .remove-cast {
+                background-color: #dc3545;
+                color: $color-btn-text;
+                border: $border;
+                padding: $padding-input;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+    }
+
+    .adding-cast {
+        background-color: #04a562;
+        color: white;
+        border: none;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #02502f;
+        }
+    }
+
+    .form-btn {
+        align-self: flex-start;
+        background-color: #17a2b8;
+        color: $color-btn-text;
+        border: $border;
+        padding: $padding-input;
+
+        &:hover {
+            background-color: #138496;
+        }
+    }
+
+    .form-submit {
+        background-color: #04a562;
+        color: $color-btn-text;
+        border: $border;
+        padding: 0.75rem;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #02502f;
+        }
+    }
+
+    .error-message {
+        color: red;
+        font-weight: bold;
+    }
+
+    .invalid {
+        border-color: red;
+    }
+}
+
+//Header Component
+nav {
+    background-color: $nav-bg-color;
+    padding: 2rem 2rem;
+
+    .header-div {
+        display: flex;
+        gap: 5rem;
+        align-items: $align-items;
+        justify-content: center;
+
+        .header-div-class {
+            display: flex;
+            align-items: $align-items;
+            gap: 1rem;
+
+            .header-img {
+                width: $icon-size;
+                height: $icon-size;
+                object-fit: contain;
+            }
+
+            .header-link {
+                color: #eee;
+                font-weight: 600;
+
+                &:hover {
+                    color: #000000;
+                }
+            }
+        }
+    }
+}
+
+//Home Component
+.left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+
+    .home-div {
+        width: 20rem;
+        background-color: $card-bg-color;
+        border-radius: $card-border-radius;
+        box-shadow: $card-box-shadow;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 2rem;
+
+        &:hover {
+            box-shadow: $card-hover-box-shadow;
+        }
+
+        .home-span {
+            display: block;
+            color: #333;
+            text-align: center;
+        }
+
+        .home-img {
+            width: 20rem;
+            height: 20rem;
+        }
+
+
+    }
+}
+
+//Movie Detail Component
+.detail-div {
+    display: block;
+    max-width: 600px;
+    margin: 20px auto;
+    color: $primary-color;
+    background: $background-color;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+.detail-heading {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #222;
+    text-align: $text-align;
+}
+
+.detail-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    max-width: 100%;
+    height: auto;
+}
+
+.detail-paragraph {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: $primary-color;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//Movie List Component
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.movie-card {
+    background-color: $card-bg-color;
+    border-radius: $card-border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 16px;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: $align;
+
+    &:hover {
+        transform: translateY($card-hover-translate-y);
+    }
+
+    .list-heading {
+        margin: 0 0 12px;
+        font-size: 1.2rem;
+        color: #333;
+        text-align: $align;
+    }
+
+    .list-img {
+        border-radius: $image-border-radius;
+        margin-bottom: 12px;
+    }
+
+    .list-paragraph {
+        font-size: 0.9rem;
+        color: #555;
+        margin: 4px 0;
+        text-align: $align;
+    }
+
+    .list-button {
+        margin-top: 12px;
+        padding: 8px 16px;
+        border: none;
+        background-color: $primary-color;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+
+        &:hover {
+            background-color: $primary-hover-color;
+        }
+    }
+}
+
+//AppHighlight Directive
+.highlighted {
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
